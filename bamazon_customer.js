@@ -54,21 +54,20 @@ function start() {
         .then(function(answer) {
             if (answer.ID_selection === "1001" || "1002" || "1003" || "1004" || "1005" ||
                 "1006" || "1007" || "1008" || "1009" || "1010")
-                console.log("Thank you");
-            stockCheck();
+                console.log("You ordered item ID number: " + answer.ID_selection + " for " + answer.units + " units.");
+            readProduct(answer.ID_selection);
         });
-};
+}
 
+function readProduct(ID_selection) {
+    console.log("Selecting all products...\n");
+    connection.query("SELECT * FROM products WHERE ?", {
+        item_id: ID_selection
 
-function stockCheck() {
-    connection.query(
-        "UPDATE products SET ?", {
-            stock_quantity: 2
-        },
-        function(err) {
-            if (err) throw err;
-            console.log("Your order was created successfully!");
-            afterConnection();
-        }
-    );
+    }, function(err, res) {
+        if (err) throw err;
+        // Log all results of the SELECT statement
+        console.log(res);
+        connection.end();
+    });
 };
