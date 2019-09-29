@@ -55,19 +55,41 @@ function start() {
             if (answer.ID_selection === "1001" || "1002" || "1003" || "1004" || "1005" ||
                 "1006" || "1007" || "1008" || "1009" || "1010")
                 console.log("You ordered item ID number: " + answer.ID_selection + " for " + answer.units + " units.");
-            readProduct(answer.ID_selection);
+            readProduct(answer.ID_selection, answer.units);
         });
 }
 
-function readProduct(ID_selection) {
-    console.log("Selecting all products...\n");
-    connection.query("SELECT * FROM products WHERE ?", {
-        item_id: ID_selection
+function readProduct(item_id, stock_quantity) {
+    console.log("Showing selected product information...");
+    var query = connection.query(
+        "SELECT * FROM products SET @units=stock_quantity WHERE @ID_selection=item_id", [{
+                stock_quantity
+            },
+            {
+                item_id
+            }
+        ],
+        function(res, err) {
+            if (err) throw err;
+            // Log data for selected item id
+            console.log(res);
+        })
 
-    }, function(err, res) {
-        if (err) throw err;
-        // Log all results of the SELECT statement
-        console.log(res);
-        connection.end();
-    });
-};
+}
+
+/*function updateProduct() {
+    console.log("Updating stock quantity...\n");
+    var query = connection.query(
+        "UPDATE products SET ? WHERE ?", [{
+                stock_quantity: 15
+            },
+            {
+                item_id: 1001
+            }
+        ],
+        function(err, res) {
+            if (err) throw err;
+            console.log(res.affectedRows + " products updated!\n");
+
+        });
+}*/
