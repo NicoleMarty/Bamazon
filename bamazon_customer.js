@@ -55,27 +55,27 @@ function start() {
             if (answer.ID_selection === "1001" || "1002" || "1003" || "1004" || "1005" ||
                 "1006" || "1007" || "1008" || "1009" || "1010")
                 console.log("You ordered item ID number: " + answer.ID_selection + " for " + answer.units + " units.");
-            readProduct(answer.ID_selection, answer.units);
+
+            readProduct(answer.ID_selection);
         });
 }
 
-function readProduct(item_id, stock_quantity) {
+function readProduct(ID_selection) {
     console.log("Showing selected product information...");
     var query = connection.query(
-        "SELECT * FROM products SET @units=stock_quantity WHERE @ID_selection=item_id", [{
-                stock_quantity
-            },
-            {
-                item_id
+        "SELECT * FROM products WHERE ?", [{
+                item_id: ID_selection
             }
+
         ],
         function(res, err) {
-            if (err) throw err;
+            if (err)
+                console.log("oops");
             // Log data for selected item id
             console.log(res);
-        })
+        });
 
-}
+};
 
 /*function updateProduct() {
     console.log("Updating stock quantity...\n");
