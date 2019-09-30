@@ -52,15 +52,14 @@ function start() {
             }
         ])
         .then(function(answer) {
-            if (answer.ID_selection === "1001" || "1002" || "1003" || "1004" || "1005" ||
-                "1006" || "1007" || "1008" || "1009" || "1010")
-                console.log("You ordered item ID number: " + answer.ID_selection + " for " + answer.units + " units.");
+            if ((answer.ID_selection === "1001") && (answer.units <= 15)) {
+                console.log("You winnnnnn!");
+            } else console.log("loser!");
 
-            readProduct(answer.ID_selection);
         });
 }
 
-function readProduct(ID_selection) {
+/*function readProduct(ID_selection) {
     console.log("Showing selected product information...");
     var query = connection.query(
         "SELECT * FROM products WHERE ?", [{
