@@ -53,10 +53,26 @@ function start() {
         ])
         .then(function(answer) {
             if ((answer.ID_selection === "1001") && (answer.units <= 15)) {
-                console.log("You winnnnnn!");
+                console.log("Fulfilling your order...");
             } else if ((answer.ID_selection === "1002") && (answer.units <= 20)) {
-                console.log("You winnnnnn!");
-            } else console.log("loser!");
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1003") && (answer.units <= 1)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1004") && (answer.units <= 5)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1005") && (answer.units <= 18)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1006") && (answer.units <= 12)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1007") && (answer.units <= 25)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1008") && (answer.units <= 2)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1009") && (answer.units <= 6)) {
+                console.log("Fulfilling your order...");
+            } else if ((answer.ID_selection === "1010") && (answer.units <= 2)) {
+                console.log("Fulfilling your order...");
+            } else console.log("Insufficient stock. You snooze you lose. Order cancelled.");
 
         });
 }
