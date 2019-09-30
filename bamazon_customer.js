@@ -54,6 +54,8 @@ function start() {
         .then(function(answer) {
             if ((answer.ID_selection === "1001") && (answer.units <= 15)) {
                 console.log("You winnnnnn!");
+            } else if ((answer.ID_selection === "1002") && (answer.units <= 20)) {
+                console.log("You winnnnnn!");
             } else console.log("loser!");
 
         });
