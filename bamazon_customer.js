@@ -180,8 +180,23 @@ function productTen() {
 };
 
 function promptTwo() {
-    inquirer.prompt()
-}
+    inquirer
+        .prompt({
+            name: "purchase_again",
+            type: "confirm",
+            message: "Would you like to make another purchase?",
+            default: true
+        })
+        .then(function(answer) {
+
+            if (answer.purchase_again === true) {
+                start();
+            } else {
+                connection.end();
+            }
+
+        }); //closing inquirer
+};
 
 /*function readProduct(ID_selection) {
     console.log("Showing selected product information...");
