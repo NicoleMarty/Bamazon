@@ -111,6 +111,7 @@ function productTwo() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1002" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -119,6 +120,7 @@ function productThree() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1003" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -127,6 +129,7 @@ function productFour() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1004" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -135,6 +138,7 @@ function productFive() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1005" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -143,6 +147,7 @@ function productSix() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1006" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -151,6 +156,7 @@ function productSeven() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1007" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -159,6 +165,7 @@ function productEight() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1008" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -167,6 +174,7 @@ function productNine() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1009" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
@@ -175,6 +183,7 @@ function productTen() {
     connection.query("SELECT * FROM products WHERE ?", { item_id: "1010" }, function(err, res) {
         if (err) throw err;
         console.log(res);
+        promptTwo();
 
     });
 };
