@@ -52,7 +52,7 @@ function start() {
             }
         ])
         .then(function(answer) {
-            if ((answer.ID_selection === "1001") && (answer.units <= 15)) {
+            if ((answer.ID_selection === "1001") && (answer.units <= updatedUnits)) {
                 console.log("Fulfilling your order...");
                 productOne();
 
